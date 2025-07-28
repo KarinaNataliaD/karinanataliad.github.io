@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Coding Portfolio</title>
+    <style>
+        :root {
+            --primary: #ff85a1;
+            --secondary: #fbb1bd;
+            --accent: #7bb4e3;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --font-main: 'Quicksand', sans-serif;
+            --font-header: 'Pacifico', cursive;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap');
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-family: var(--font-header);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-family: var(--font-header);
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .blob {
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background-color: var(--accent);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        /* Navigation */
+        nav {
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        /* Intro section */
+        .intro {
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-text {
+            flex: 1;
+        }
+        
+        .intro-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .avatar {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Projects section */
+        .projects {
+            padding: 4rem 0;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            height: 200px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Skills section */
+        .skills {
+            padding: 4rem 0;
+            background-color: rgba(255, 133, 161, 0.05);
+            border-radius: 30px;
+            margin: 2rem 0;
+        }
+        
+        .skill-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .skill-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li::before {
+            content: "✨";
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        /* About section */
+        .about {
+            padding: 4rem 0;
+        }
+        
+        .education, .experience {
+            margin-top: 2rem;
+        }
+        
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 1rem;
+            bottom: -2rem;
+            width: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Contact section */
+        .contact {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            margin: 0 1rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            background-color: #ff6b8e;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .intro {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .intro-image {
+                margin-top: 2rem;
+                order: -1;
+            }
+            
+            .avatar {
+                width: 250px;
+                height: 250px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative blob -->
+    <div class="blob"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <h1>Karina De Santiago</h1>
+            <p>Software Developer | Web Developer | Full-Stack Learner</p>
+        </div>
+    </header>
+    
+    <!-- Intro Section -->
+    <section id="home" class="intro">
+        <div class="container">
+            <div class="intro-text">
+                <h2>Hello there! 👋</h2>
+                <p>I’m a Computer Science student with a strong interest in software development and backend systems. I enjoy turning ideas into real, functional tools, especially when they help solve real-world problems.</p>
+                <p>I’ve gained hands-on experience through internships and academic projects, building full-stack web applications and working with technologies like MongoDB, Node.js, and Express. I’m always looking for opportunities to grow as a developer and take on new challenges that help me expand my skills.</p>
+                <a href="#contact" class="btn">Let's Connect</a>
+            </div>
+            <div class="intro-image">
+                <img src="sublinersKarina.jpg" alt="Your Profile" class="avatar" />
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <p>Here are some of the projects I've worked on recently.</p>
+            
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">🚀</div>
+                    <div class="project-info">
+                        <h3>Penuel School Website</h3>
+                        <p>A full-stack web application created for a primary school in Tanzania during my internship. I handled both front-end and back-end development, including teacher, student, and admin portals. I used MongoDB, Express, Node.js, and integrated Webflow for the front-end layout.
+Key Features:              Custom login system, editable teacher profiles, announcements, and scheduling tools.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">💻</div>
+                    <div class="project-info">
+                        <h3>Call of Duty VOD Analysis Tool</h3>
+                        <p>Developed backend software to help an esports team analyze scrim footage and generate performance stats like KD ratios, hill win percentage, and chain events. Built using Python and Flask, with plans to expand to a full-stack version.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">📱</div>
+                    <div class="project-info">
+                        <h3>Course Project: Dynamic Memory Allocator</h3>
+                        <p>Implemented a custom version of malloc, free, and realloc in C using an explicit free list. This was a challenging systems-level project that helped me understand memory management and pointer manipulation in depth.</p>
+                        <div class="project-tags">
+                            <span class="tag">Coalescing</span>
+                            <span class="tag">block splitting</span>
+                            <span class="tag">reuse of freed memory</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <p>Here are some of the technologies and tools I'm proficient with.</p>
+            
+            <div class="skill-categories">
+                <!-- Frontend Skills -->
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul class="skill-list">
+                        <li>HTML5/CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React.js</li>
+                        <li>Vue.js</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>Express</li>
+                        <li>Django</li>
+                        <li>RESTful APIs</li>
+                    </ul>
+                </div>
+                
+                <!-- Database Skills -->
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <ul class="skill-list">
+                        <li>MongoDB</li>
+                        <li>PostgreSQL</li>
+                        <li>MySQL</li>
+                        <li>Firebase</li>
+                        <li>Redis</li>
+                    </ul>
+                </div>
+                
+                <!-- Other Skills -->
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <ul class="skill-list">
+                        <li>Git/GitHub</li>
+                        <li>Docker</li>
+                        <li>AWS</li>
+                        <li>CI/CD</li>
+                        <li>Agile Methodologies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>A bit more about my background, education, and experience.</p>
+            
+            <!-- Education -->
+            <div class="education">
+                <h3>Education</h3>
+                
+                <div class="timeline-item">
+                    <div class="date">2020 - 2024</div>
+                    <h4>Bachelor's Degree in Computer Science</h4>
+                    <p>DePaul University</p>
+                    <p>Relevant coursework: Data Structures & Algorithms, Web Development, Database Systems, Machine Learning</p>
+                </div>
+                
+            <!-- Experience -->
+            <div class="experience">
+                <h3>Experience</h3>
+                
+                <div class="timeline-item">
+                    <div class="date">2023 - Present</div>
+                    <h4>Software Developer Intern</h4>
+                    <p>BirthdayMessaging.io COMING UP</p>
+                    <p>Developing and maintained web applications using React and Node.js. Collaborated with a team of developers to implement new features and fix bugs.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="date">2022 - 2023</div>
+                    <h4>Web Developer Intern</h4>
+                    <p>FIEN Foundation</p>
+                    <p>Designed and developed a full-stack website for a primary school in Tanzania
+
+                        Built admin, teacher, student, and parent portals with features like login systems, editable profiles, class management, announcements, and scheduling
+
+                        Used technologies like MongoDB, Express, Node.js, HTML/CSS, and Webflow
+
+                        Handled both front-end and back-end development independently while coordinating with stakeholders remotely</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            <p>Email: karinaanatalia@gmail.com</p>
+            
+            <div class="social-links TO BE ADDED">
+                <a href="#" class="social-link">GH</a>
+                <a href="#" class="social-link">LI</a>
+                <a href="#" class="social-link">TW</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Karina De Santiago. All rights reserved.</p>
+            <p>Designed with ❤️ by Karina De Santiago</p>
+        </div>
+    </footer>
+</body>
+</html>
