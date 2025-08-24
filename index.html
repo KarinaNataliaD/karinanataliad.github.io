@@ -282,22 +282,23 @@
             display: flex;
             justify-content: center;
             margin-top: 2rem;
+            gap: 1rem;
         }
         
         .social-link {
-            margin: 0 1rem;
-            width: 60px;
-            height: 60px;
+            padding: 0.8rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: white;
-            border-radius: 50%;
+            border-radius: 30px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
             transition: all 0.3s ease;
             text-decoration: none;
+            min-width: 120px;
         }
         
         .social-link:hover {
@@ -358,6 +359,11 @@
             .project-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -387,8 +393,8 @@
         <div class="container">
             <div class="intro-text">
                 <h2>Hello there! 👋</h2>
-                <p>I’m a Computer Science student with a strong interest in software development and backend systems. I enjoy turning ideas into real, functional tools, especially when they help solve real-world problems.</p>
-                <p>I’ve gained hands-on experience through internships and academic projects, building full-stack web applications and working with technologies like MongoDB, Node.js, and Express. I’m always looking for opportunities to grow as a developer and take on new challenges that help me expand my skills.</p>
+                <p>I'm a Computer Science student with a strong interest in software development and backend systems. I enjoy turning ideas into real, functional tools, especially when they help solve real-world problems.</p>
+                <p>I've gained hands-on experience through internships and academic projects, building full-stack web applications and working with technologies like MongoDB, Node.js, and Express. I'm always looking for opportunities to grow as a developer and take on new challenges that help me expand my skills.</p>
                 <a href="#contact" class="btn">Let's Connect</a>
             </div>
             <div class="intro-image">
@@ -565,10 +571,10 @@ Key Features:              Custom login system, editable teacher profiles, annou
             <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
             <p>Email: karinaanatalia@gmail.com</p>
             
-            <div class="social-links TO BE ADDED">
-                <a href="#" class="https://github.com/KarinaNataliaD">GH</a>
-                <a href="#" class="social-link">LI</a>
-                <a href="#" class="social-link">TW</a>
+            <div class="social-links">
+                <a href="https://github.com/KarinaNataliaD" class="social-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/karina-desantiago" class="social-link" target="_blank">LinkedIn</a>
+                <a href="https://depaul.joinhandshake.com/profiles/r3fmxt" class="social-link" target="_blank">Handshake</a>
             </div>
         </div>
     </section>
@@ -582,5 +588,4 @@ Key Features:              Custom login system, editable teacher profiles, annou
     </footer>
 </body>
 </html>
-
 
